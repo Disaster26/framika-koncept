@@ -14,8 +14,8 @@
 <link rel="preload" as="image" href="img/portrety-owal.webp">
 <style>
 :root{
-  --gold:#C5A15A; --gold-txt:#7E6024; --gold-l:#EFE4CC;
-  --ink:#1D2024; --muted:#565B63; --line:#E3E5E8; --grey:#F2F3F5;
+  --gold:#C5A15A; --gold-txt:#7E6024; --dark:#131518;
+  --ink:#1D2024; --muted:#565B63; --line:#E3E5E8; --grey:#EEF0F2;
   --graphite:#1D2024; --silver:#B7BCC3;
   --hh:64px; --wrap:min(1200px, calc(100% - 32px));
 }
@@ -31,50 +31,46 @@ h1,h2,h3{font-family:Newsreader,Georgia,serif;font-weight:600;line-height:1.12;m
 .btn-gold:hover{background:#B38F48}
 .btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--ink)}
 .btn-line:hover{background:var(--ink);color:#fff}
-.star{width:14px;height:14px;flex:none;fill:var(--gold)}
+.bar{width:12px;height:16px;flex:none;fill:var(--gold)}
 
 /* naglowek */
-.top{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);height:var(--hh)}
+.top{position:sticky;top:0;z-index:50;background:var(--dark);border-bottom:1px solid #262A30;height:var(--hh);color:#fff}
 .top .wrap{height:100%;display:flex;align-items:center;justify-content:space-between;gap:16px}
-.logo img{height:28px;width:auto}
+.logo img{height:24px;width:auto}
+@media (min-width:380px){.logo img{height:27px}}
 .nav{display:none;gap:30px;align-items:center}
-.nav a{text-decoration:none;font-weight:500;font-size:15px;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent}
-.nav a:hover{color:var(--ink)}
-.nav a.on{color:var(--ink);border-color:var(--gold)}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;color:#AEB3BA;padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{color:#fff}
+.nav a.on{color:#fff;border-color:var(--gold)}
 .top-r{display:flex;align-items:center;gap:8px}
-.tel-ico{width:44px;height:44px;display:grid;place-items:center;border-radius:4px;color:var(--ink);text-decoration:none}
-.tel-ico svg{width:22px;height:22px}
-.tel-txt{display:none;font-weight:600;text-decoration:none;font-size:15px}
+.tel-txt{font-weight:600;text-decoration:none;font-size:15px;color:#fff;white-space:nowrap}
 .top .btn{display:none;min-height:44px;padding:0 20px;font-size:15px}
 .burger{width:44px;height:44px;border:0;background:none;display:grid;place-items:center;cursor:pointer;padding:0}
-.burger span{display:block;width:22px;height:2px;background:var(--ink);position:relative}
-.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:var(--ink)}
+.burger span{display:block;width:22px;height:2px;background:#fff;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#fff}
 .burger span::before{top:-7px}.burger span::after{top:7px}
-.menu{position:fixed;inset:var(--hh) 0 auto 0;background:#fff;border-bottom:1px solid var(--line);padding:8px 16px 22px;display:none;z-index:49;box-shadow:0 18px 30px rgba(0,0,0,.08)}
+.menu{position:fixed;inset:var(--hh) 0 auto 0;background:var(--dark);color:#fff;border-bottom:1px solid #262A30;padding:8px 16px 22px;display:none;z-index:49;box-shadow:0 18px 30px rgba(0,0,0,.08)}
 .menu.open{display:block}
-.menu a{display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font:600 20px/1.3 Newsreader,serif}
-.menu a.on{color:var(--gold-txt)}
+.menu a{display:block;padding:14px 0;border-bottom:1px solid #2A2E34;text-decoration:none;font:600 20px/1.3 Newsreader,serif}
+.menu a.on{color:var(--gold)}
+.menu .btn{color:#131518}
 .menu .btn{display:flex;width:100%;margin-top:18px;font-family:Manrope,sans-serif;font-size:16px;border:0}
 
-/* hero */
-.hero{min-height:calc(100svh - var(--hh));display:flex;flex-direction:column;position:relative;overflow:hidden}
-.art{position:relative;flex:1 1 0;min-height:min(62vw,30svh);width:100%;align-self:stretch;container-type:size}
-.stage{position:absolute;inset:0;margin:auto;width:min(100cqw,115cqh);height:min(100cqh,87cqw)}
-.bands{position:absolute;inset:0;width:100%;height:100%}
-.obj{position:absolute;height:auto;filter:drop-shadow(0 14px 18px rgba(29,32,36,.22))}
-.obj-owal{height:86%;width:auto;left:47%;top:8%;transform:rotate(3deg)}
-.obj-prost{height:66%;width:auto;left:9%;top:22%;transform:rotate(-9deg)}
-.glint{position:absolute;width:26px;height:26px;fill:var(--gold)}
-.g1{left:3%;top:17%}
-.hero-in{flex:0 0 auto;padding:6px 0 calc(22px + env(safe-area-inset-bottom))}
+/* hero - ciemna scena z portretami */
+.hero{min-height:calc(100svh - var(--hh));display:flex;flex-direction:column;position:relative;overflow:hidden;background:var(--dark);color:#fff}
+.art{position:relative;flex:1 1 0;min-height:min(70vw,34svh);width:100%;align-self:stretch;container-type:size}
+.bar-a,.bar-b{position:absolute;background:var(--gold)}
+.bar-a{left:34%;right:-40px;top:24%;height:17%;clip-path:polygon(9cqh 0,100% 0,100% 100%,0 100%)}
+.bar-b{left:-40px;right:58%;top:44%;height:13%;clip-path:polygon(0 0,100% 0,calc(100% - 7.5cqh) 100%,0 100%)}
+.stage{position:absolute;inset:0;margin:auto;width:min(100cqw,112cqh);height:min(100cqh,89cqw)}
+.obj{position:absolute;height:auto;filter:drop-shadow(0 18px 26px rgba(0,0,0,.55))}
+.obj-owal{height:90%;width:auto;left:47%;top:6%;transform:rotate(3deg)}
+.obj-prost{height:70%;width:auto;left:7%;top:18%;transform:rotate(-8deg)}
+.hero-in{flex:0 0 auto;padding:4px 0 calc(22px + env(safe-area-inset-bottom));position:relative}
 .hero h1{font-size:clamp(28px,min(8.4vw,4.6svh),40px);max-width:15ch}
-.lead{margin:12px 0 0;color:var(--muted);font-size:clamp(15px,2.1svh,17px);line-height:1.55;max-width:46ch}
-.hero-cta{display:flex;gap:12px;margin-top:clamp(16px,2.6svh,26px);flex-wrap:wrap;align-items:center}
+.lead{margin:12px 0 0;color:#C3C8CF;font-size:clamp(15px,2.1svh,17px);line-height:1.55;max-width:46ch}
+.hero-cta{display:flex;gap:12px 22px;margin-top:clamp(16px,2.6svh,26px);flex-wrap:wrap;align-items:center}
 .hero-cta .btn{flex:1 1 auto}
-.hero-meta{margin:14px 0 0;font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px}
-
-/* listwa - separator z logo */
-.listwa{display:block;width:120px;height:18px;margin:0 0 22px}
 
 section{scroll-margin-top:var(--hh)}
 .sec{padding:72px 0}
@@ -85,28 +81,26 @@ section{scroll-margin-top:var(--hh)}
 /* oprawy */
 .choices{display:grid;grid-template-columns:repeat(3,minmax(250px,1fr));gap:16px;margin-top:36px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;scrollbar-width:thin;cursor:grab;-webkit-overflow-scrolling:touch}
 .choices.drag{cursor:grabbing;scroll-snap-type:none}
-.choice{scroll-snap-align:start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:26px 22px 24px;min-width:0;user-select:none}
-.choice .frame{position:relative;width:132px;height:170px;margin:0 0 22px;padding:5px;box-shadow:0 10px 18px rgba(29,32,36,.16)}
+.choice{scroll-snap-align:start;background:#fff;border-radius:6px;overflow:hidden;padding:0 0 24px;min-width:0;user-select:none}
+.choice h3,.choice p{padding:0 22px}
+.ch-foto{background:var(--dark);display:grid;place-items:center;aspect-ratio:5/4;margin:0 0 22px}
+.choice .frame{position:relative;width:46%;aspect-ratio:13/17;height:auto;padding:5px;box-shadow:0 16px 24px rgba(0,0,0,.5)}
 .frame img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
 .f-owal,.f-owal img{border-radius:50%}
 .f-prost{border-radius:12px}.f-prost img{border-radius:8px}
 .r-zloty{background:linear-gradient(135deg,#E8D29C,#B8954B 35%,#F0DDAE 55%,#A8853D)}
 .r-srebrny{background:linear-gradient(135deg,#F4F5F7,#A9AEB6 35%,#EEF0F2 55%,#959BA4)}
-.fglint{position:absolute;width:22px;height:22px;right:-6px;top:4px;fill:var(--gold)}
 .choice h3{font-size:24px}
 .choice p{margin:8px 0 0;color:var(--muted);font-size:15px}
 .hint{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;margin-top:6px}
 
 /* jak zamowic */
 .order{display:grid;gap:40px}
-.steps{list-style:none;margin:28px 0 0;padding:0;display:grid;gap:18px}
-.steps li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;font-size:17px}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:14px;align-items:start;font-size:17px;padding:18px 0;border-top:1px solid var(--line)}
 .steps li svg{margin-top:6px}
 .steps b{display:block;font-weight:700}
 .steps span{color:var(--muted)}
-.order-foto{position:relative;overflow:hidden;min-height:340px;display:grid;place-items:center}
-.order-foto svg.bands{opacity:1}
-.order-foto img{position:relative;width:auto;height:290px;transform:rotate(-6deg);filter:drop-shadow(0 14px 18px rgba(29,32,36,.22))}
 
 /* o firmie / kontakt */
 .contact{display:grid;gap:40px}
@@ -128,7 +122,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-of
 .row2{display:grid;gap:14px}
 .file{border:1.5px dashed #C3C8CE;border-radius:4px;padding:14px;font-weight:500;color:var(--muted);cursor:pointer}
 .file input{border:0;padding:6px 0 0;font-size:14px}
-.ok{display:none;background:var(--gold-l);color:#4A3A16;border-radius:4px;padding:12px 14px;font-size:15px}
+.ok{display:none;background:var(--dark);color:#fff;border-radius:4px;padding:12px 14px;font-size:15px}
 .ok.show{display:block}
 
 /* stopka */
@@ -142,7 +136,6 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 footer a{text-decoration:none}
 footer a:hover{color:#fff}
 .f-bottom{margin-top:34px;padding-top:18px;border-top:1px solid #33373D;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:center;font-size:14px}
-.f-band{display:block;width:84px;height:12px;margin-bottom:6px}
 
 /* dolny pasek tel. */
 .mob{position:fixed;left:0;right:0;bottom:0;z-index:40;display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);transform:translateY(110%);transition:transform .25s ease}
@@ -169,41 +162,35 @@ footer a:hover{color:#fff}
   .logo img{height:32px}
   .nav{display:flex}
   .burger{display:none}
-  .tel-ico{display:none}
-  .tel-txt{display:inline}
   .top .btn{display:inline-flex}
   .top-r{gap:22px}
-  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;width:var(--wrap);margin:0 auto;overflow:visible}
-  .hero-in{order:0;padding:40px 0}
-  .art{order:1;height:100%;min-height:0;width:auto;margin-right:calc((100vw - min(1200px, 100vw - 32px)) / -2)}
-  .hero{column-gap:48px}
-  .hero h1{font-size:clamp(42px,min(4.2vw,7vh),62px);max-width:13ch}
-  .lead{font-size:19px;margin-top:22px}
-  .hero-cta{margin-top:34px}
-  .hero-meta{margin-top:26px}
-  .stage{margin:auto auto auto 0;width:min(100cqw,105cqh)}
-  .obj-owal{height:76%;top:9%;left:45%}
-  .obj-prost{height:58%;top:23%;left:5%}
-  .glint{width:32px;height:32px}
-  .g1{top:17%;left:0}
-  .sec{padding:110px 0}
+  .hero{display:grid;grid-template-rows:minmax(0,1fr) auto;justify-items:center;text-align:center}
+  .art{min-height:0;height:100%}
+  .bar-a{left:22%;top:22%;height:18%}
+  .bar-b{right:21%;top:47%;height:12%}
+  .stage{width:min(100cqw,100cqh)}
+  .obj-owal{height:92%;top:5%;left:48%}
+  .obj-prost{height:72%;top:16%;left:10%}
+  .hero-in{padding:10px 0 clamp(28px,5vh,56px)}
+  .hero h1{font-size:clamp(40px,min(3.9vw,6.4vh),62px);max-width:none;margin:0 auto}
+  .lead{font-size:18px;margin:14px auto 0;max-width:60ch}
+  .hero .hero-cta{justify-content:center;margin-top:24px}
+    .sec{padding:110px 0}
   .choices{grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;cursor:auto}
   .hint{display:none}
-  .choice .frame{width:150px;height:194px}
-  .choice{padding:32px 28px 30px}
+  .choice{padding:0 0 30px}
+  .choice h3,.choice p{padding:0 28px}
   .order{grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:64px}
-  .order-foto{min-height:460px}
-  .order-foto img{height:380px}
-  .contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
+      .contact{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:64px;align-items:start}
   form{padding:34px 32px}
   .f-grid{grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,1fr) minmax(0,1fr)}
   .f-brand{grid-column:auto}
   .mob{display:none}
 }
 @media (min-width:960px) and (max-height:800px){
-  .hero h1{font-size:clamp(40px,6.6vh,54px)}
-  .lead{font-size:17px;margin-top:16px}
-  .hero-cta{margin-top:24px}
+  .hero h1{font-size:clamp(36px,6vh,48px)}
+  .lead{font-size:16px;margin-top:10px}
+  .hero-cta{margin-top:18px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.mob{transition:none}}
 </style>
@@ -211,8 +198,6 @@ footer a:hover{color:#fff}
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <symbol id="blysk" viewBox="0 0 24 24"><path d="M12 0Q13 11 24 12 13 13 12 24 11 13 0 12 11 11 12 0Z"/></symbol>
-    <symbol id="listwa" viewBox="0 0 120 18"><path d="M8 0H120L113 8H1Z" fill="#C5A15A"/><path d="M8 10H86L79 18H1Z" fill="#C5A15A"/></symbol>
   </defs>
 </svg>
 
@@ -227,7 +212,6 @@ footer a:hover{color:#fff}
     </nav>
     <div class="top-r">
       <a class="tel-txt" href="tel:+48506104780">506 104 780</a>
-      <a class="tel-ico" href="tel:+48506104780" aria-label="Zadzwoń: 506 104 780"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
       <a class="btn btn-gold" href="#kontakt">Zapytaj o portret</a>
       <button class="burger" aria-label="Otwórz menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     </div>
@@ -244,79 +228,64 @@ footer a:hover{color:#fff}
 <main>
 <section class="hero" id="start">
   <div class="art" aria-hidden="true">
-    <svg class="bands" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice">
-      <path d="M150 170 228 35H760L682 170Z" fill="#C5A15A"/>
-      <path d="M96 262 152 182H680L624 262Z" fill="#EFE4CC"/>
-    </svg>
+    <div class="bar-a"></div><div class="bar-b"></div>
     <div class="stage">
     <img class="obj obj-prost" src="img/portret-prostokat.webp" width="388" height="570" alt="">
     <img class="obj obj-owal" src="img/portrety-owal.webp" width="512" height="792" alt="">
-    <svg class="glint g1"><use href="#blysk"/></svg>
     </div>
   </div>
   <div class="hero-in wrap">
     <h1>Portret bliskiej osoby, oprawiony z&nbsp;szacunkiem</h1>
-    <p class="lead">Owal albo prostokąt, złoty albo srebrny rant. Prześlij zdjęcie, a&nbsp;przygotujemy z&nbsp;niego portret w&nbsp;oprawie.</p>
+    <p class="lead">Owal albo prostokąt, złoty albo srebrny rant. Prześlij zdjęcie, a&nbsp;przygotujemy z&nbsp;niego portret w&nbsp;oprawie. Gostyń Łobeski koło Płotów.</p>
     <div class="hero-cta">
       <a class="btn btn-gold" href="#kontakt">Zapytaj o portret</a>
     </div>
-    <p class="hero-meta"><svg class="star"><use href="#blysk"/></svg>Gostyń Łobeski 17, gmina Płoty</p>
   </div>
 </section>
 
 <section class="sec sec-grey" id="oprawy">
   <div class="wrap">
-    <svg class="listwa"><use href="#listwa"/></svg>
     <h2>Kształt i rant wybierasz Ty</h2>
     <p class="intro">Portrety, które pokazujemy, mają dwa kształty: owal i prostokąt, w złotym albo srebrnym rancie. Połączenie dobierasz do zdjęcia i do miejsca, w którym portret będzie oprawiony.</p>
     <div class="choices" id="choices">
       <article class="choice">
-        <div class="frame f-owal r-zloty"><img src="img/twarz-owal-1.webp" width="208" height="288" loading="lazy" alt="Owalny portret starszego mężczyzny w złotym rancie"><svg class="fglint" aria-hidden="true"><use href="#blysk"/></svg></div>
+        <div class="ch-foto"><div class="frame f-owal r-zloty"><img src="img/twarz-owal-1.webp" width="208" height="288" loading="lazy" alt="Owalny portret starszego mężczyzny w złotym rancie"></div></div>
         <h3>Owal, złoty rant</h3>
         <p>Klasyczny owalny portret w ciepłej, złotej oprawie.</p>
       </article>
       <article class="choice">
-        <div class="frame f-owal r-srebrny"><img src="img/twarz-owal-2.webp" width="208" height="288" loading="lazy" alt="Owalny portret starszej kobiety w srebrnym rancie"><svg class="fglint" aria-hidden="true"><use href="#blysk"/></svg></div>
+        <div class="ch-foto"><div class="frame f-owal r-srebrny"><img src="img/twarz-owal-2.webp" width="208" height="288" loading="lazy" alt="Owalny portret starszej kobiety w srebrnym rancie"></div></div>
         <h3>Owal, srebrny rant</h3>
         <p>Ten sam kształt w chłodnej, srebrnej oprawie.</p>
       </article>
       <article class="choice">
-        <div class="frame f-prost r-srebrny"><img src="img/twarz-prostokat.webp" width="208" height="288" loading="lazy" alt="Prostokątny portret mężczyzny w srebrnym rancie"><svg class="fglint" aria-hidden="true"><use href="#blysk"/></svg></div>
+        <div class="ch-foto"><div class="frame f-prost r-srebrny"><img src="img/twarz-prostokat.webp" width="208" height="288" loading="lazy" alt="Prostokątny portret mężczyzny w srebrnym rancie"></div></div>
         <h3>Prostokąt, srebrny rant</h3>
         <p>Portret pionowy z zaokrąglonymi rogami.</p>
       </article>
     </div>
-    <p class="hint"><svg class="star"><use href="#blysk"/></svg>Przesuń palcem, aby zobaczyć wszystkie</p>
+    <p class="hint">Przesuń palcem, aby zobaczyć wszystkie</p>
   </div>
 </section>
 
 <section class="sec" id="zamowienie">
   <div class="wrap order">
     <div>
-      <svg class="listwa"><use href="#listwa"/></svg>
       <h2>Wystarczy jedno zdjęcie</h2>
       <p class="intro">Nie trzeba nigdzie jechać. Zamówienie zaczyna się od wiadomości albo telefonu.</p>
-      <ul class="steps">
-        <li><svg class="star"><use href="#blysk"/></svg><div><b>Prześlij zdjęcie</b><span>Plik z telefonu lub komputera albo zdjęcie odbitki zrobione telefonem.</span></div></li>
-        <li><svg class="star"><use href="#blysk"/></svg><div><b>Wybierz kształt i rant</b><span>Owal albo prostokąt, złoty albo srebrny. Jeśli nie wiesz, co wybrać, doradzimy.</span></div></li>
-        <li><svg class="star"><use href="#blysk"/></svg><div><b>Odpowiemy z propozycją</b><span>Ustalimy szczegóły, cenę i sposób odbioru.</span></div></li>
-      </ul>
       <div class="hero-cta"><a class="btn btn-line" href="#kontakt">Wyślij zdjęcie</a></div>
     </div>
-    <div class="order-foto">
-      <svg class="bands" viewBox="0 0 600 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-        <path d="M-40 250 60 80H700L600 250Z" fill="#C5A15A"/>
-        <path d="M-80 420 10 268H700L610 420Z" fill="#EFE4CC"/>
-      </svg>
-      <img src="img/portret-prostokat.webp" width="388" height="570" loading="lazy" alt="Prostokątny portret mężczyzny w srebrnej oprawie z zaokrąglonymi rogami">
-    </div>
+    <ul class="steps">
+        <li><svg class="bar" viewBox="0 0 12 16" aria-hidden="true"><path d="M9 0H12L3 16H0Z"/></svg><div><b>Prześlij zdjęcie</b><span>Plik z telefonu lub komputera albo zdjęcie odbitki zrobione telefonem.</span></div></li>
+        <li><svg class="bar" viewBox="0 0 12 16" aria-hidden="true"><path d="M9 0H12L3 16H0Z"/></svg><div><b>Wybierz kształt i rant</b><span>Owal albo prostokąt, złoty albo srebrny. Jeśli nie wiesz, co wybrać, doradzimy.</span></div></li>
+        <li><svg class="bar" viewBox="0 0 12 16" aria-hidden="true"><path d="M9 0H12L3 16H0Z"/></svg><div><b>Odpowiemy z propozycją</b><span>Ustalimy szczegóły, cenę i sposób odbioru.</span></div></li>
+    </ul>
   </div>
 </section>
 
 <section class="sec sec-grey" id="kontakt">
   <div class="wrap contact">
     <div>
-      <svg class="listwa"><use href="#listwa"/></svg>
       <h2>Kontakt</h2>
       <p class="intro">Zadzwoń albo napisz. Zdjęcie możesz dołączyć do formularza obok.</p>
       <dl class="data">
@@ -367,7 +336,7 @@ footer a:hover{color:#fff}
       </div>
     </div>
     <div class="f-bottom">
-      <span><svg class="f-band"><use href="#listwa"/></svg>© <span id="rok">2026</span> FRAMIKA Stanisław Drozda</span>
+      <span>© <span id="rok">2026</span> FRAMIKA Stanisław Drozda</span>
       <a class="wylinka-badge" href="https://wylinka.pl/?utm_source=framika.pl&amp;utm_medium=stopka&amp;utm_campaign=wykonanie" rel="noopener" title="Strona wykonana przez Wylinka"><svg viewBox="0 0 64 64" aria-hidden="true" focusable="false" fill="currentColor"><path d="M9.8 22.8l-1.2-7.9 2.2-3.7 15.5 4.6-.5 1.5-7.2 5.5 4.7 15.6 5-15.6 7 0 4.1 12.7-4.2-.9-2.6 1.8-.8-2.2-5.3 15.6-4.3 0 .4 .2-2.1 2.8-1.3-1.1 1.1-1.4-3.1 .2-.1-1.7 2.2-.1-5.7-16.5-4.8 .6-.8 3.1 0 .5-.3 .5 .8 2.2-1.6 .5-.4-1.3-.8 1.6-1.5-.8 .8-1.6-1.4 .6-.6-1.6 2.3-.8 .2-.4 1.3-4.8 5.9-.8-2.4-6.9zM15.2 13.7l-.1-.4-.4 .8-.1 .8 .1 1 .1 .4 .3 .7 .3-.9 .1-.7 0-.8z"/><path class="wy-pod" d="M37.1 49.8l-4.5-13.3 2.6-1.8 4.2 .9 .9 2.8 3-9.7 0-.5 .1-.8 3.2-8.4 .5-1 .6-1 .9-1.1 1.3-1 1.1-.7 1.4-.5 1.4-.3 .7 0 .9 0 1.2 .3 1.4 .6 .8 .5 .7 .7 .6 .7 .5 .9 .3 .9 .1 .9 0 .8-.2 .9-.5 .9-.5 .6-.7 .5-.7 .3-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.6-.1-.6-.3-.7-.4-.5-.4-.4-.5-.3-.6-.3-.7 0-.7 .1-.6 .1-.5 .4-.5 .5-.3 .5-.2 .7-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1-2.1-2.8 .4-.2z"/><path class="wy-old" d="M40.8 50l.4-.2-4.1 0-4.2-12.5 2.5-1.7 4.3 .9 .6 1.9 .6-1.6 0-.3 2.4-7.8 0-.5 .1-.8 3.2-8.4 .4-.8 .6-.9 .9-1.2 .9-.9 1.3-.8 1.4-.6 1.2-.3 1.4-.1 1.3 .1 .6 .2 .8 .3 1.1 .6 .9 .7 .7 .9 .5 .9 .3 .9 .1 1.1-.1 .9-.3 .9-.4 .7-.6 .7-.6 .4-.6 .2-.1-.1 0-.1 .5-.5 .3-.7 .2-.5 0-.5-.1-.6-.2-.6-.3-.5-.4-.5-.5-.3-.6-.3-.7-.1-.6 0-.6 .1-.6 .3-.6 .5-.3 .4-.2 .5-.1 .5-.1 1.5-1.4 5.1-.8 3.3-.3 .7-.5 .7-6 17.5 1.9 .1-.1 1.7-3.1-.2 1.1 1.4-1.3 1.1zM49.6 17.1l.6 1.7-1.5 1.9 .4 .4 1.8-2.1-.7-2.1zM48.1 28.3l.5 1.8-1.7 1.8 .4 .4 1.9-2-.6-2.2zM37.9 41.7l1.7-1.5-.4-.4-1.7 1.4zM42.6 38.7l-1.5 2.8 1.1 2-1.3 2.6 .5 .2 1.5-2.8-1.1-2 1.4-2.5z"/></svg><span>wykonanie: <b>Wylinka</b></span></a>
     </div>
   </div>
